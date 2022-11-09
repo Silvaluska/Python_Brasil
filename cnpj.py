@@ -4,6 +4,9 @@ class CNPJ:
         if self.valida():
             self._cnpj = self.documento
 
+    def __str__(self):
+        return self.formata()
+
     def valida(self):
         if len(self.documento) == 14 and self.primeiro_digito() == self.documento[12] and self.segundo_digito() == self.documento[13]:
             return True
@@ -38,7 +41,7 @@ class CNPJ:
         segundo_digito = (11-resto)
         return str(segundo_digito)
 
-    def __str__(self):
+    def formata(self):
         parte1 = self._cnpj[0:2]
         parte2 = self._cnpj[2:5]
         parte3 = self._cnpj[5:8]

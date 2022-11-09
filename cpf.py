@@ -1,15 +1,15 @@
 class CPF:
     def __init__(self, cpf):
         self.documento = cpf
-        if self.valida_cpf():
+        if self.valida():
             self._cpf = self.documento
         else:
             raise ValueError('CPF Inválido!!')
 
     def __str__(self):
-        return self.formata_cpf()
+        return self.formata()
 
-    def valida_cpf(self):
+    def valida(self):
         if len(self.documento) == 11 and self.primeiro_digito() == self.documento[9] and self.segundo_digito() == self.documento[10] and not self.digitos_igauis():
             return True
         else:
@@ -43,7 +43,7 @@ class CPF:
         else:
             return False
      
-    def formata_cpf(self):
+    def formata(self):
         fatia_1 = self._cpf[0:3]
         fatia_2 = self._cpf[3:6]
         fatia_3 = self._cpf[6:9]
